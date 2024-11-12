@@ -1,0 +1,242 @@
+/* Global body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Content styling */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: left;
+  flex-grow: 1;
+  padding-bottom: 100px;
+}
+
+/* Header styling */
+header {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: purple;
+}
+
+/* General paragraph and list styling */
+p, li {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navigation styling */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+}
+
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: purple;
+  color: white;
+}
+
+/* Sections and section cards styling */
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Styling for individual section cards */
+.section {
+  background-color: white;
+  width: 30%;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid purple;
+}
+
+.section h2 {
+  color: purple;
+}
+
+.section a {
+  color: purple;
+  text-decoration: underline;
+}
+
+/* Footer content styling */
+footer p {
+  color: white !important;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+  .sections {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section {
+    width: 80%;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Modal Content (The Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation to modal images */
+.modal-content, #caption {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* The Close Button styling */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling for the header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px; /* Positions below the header */
+  left: 10px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 150px;
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 0;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #444;
+}
+
+/* Logout button styling */
+#logoutButton {
+  background-color: #555;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Center title */
+.header-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.5em;
+}

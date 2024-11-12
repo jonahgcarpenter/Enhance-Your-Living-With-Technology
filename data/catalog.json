@@ -1,0 +1,442 @@
+{
+  "catalog": {
+    "additions": {
+      "Vacuum_Robots": {
+        "models": {
+          "iRobot_Roomba_i7+": {
+            "modelName": "iRobot Roomba i7+",
+            "price": "$799.99",
+            "features": ["Automatic dirt disposal", "Smart mapping", "Voice control"],
+            "competitionDiff": "Automatically empties its bin and offers detailed room mapping with smart home integration."
+          },
+          "Eufy_RoboVac_11S": {
+            "modelName": "Eufy RoboVac 11S",
+            "price": "$219.99",
+            "features": ["Slim design", "BoostIQ technology", "Quiet operation"],
+            "competitionDiff": "Slimmest design in its class with quiet, powerful cleaning at an affordable price."
+          },
+          "Roborock_S6_MaxV": {
+            "modelName": "Roborock S6 MaxV",
+            "price": "$749.99",
+            "features": ["LiDAR navigation", "Mop and vacuum", "AI obstacle avoidance"],
+            "competitionDiff": "AI-driven obstacle avoidance and dual vacuum/mop functionality set it apart."
+          },
+          "Shark_IQ_Robot_Self_Empty": {
+            "modelName": "Shark IQ Robot Self-Empty",
+            "price": "$599.99",
+            "features": ["Self-emptying base", "Room mapping", "Voice control"],
+            "competitionDiff": "Offers the self-emptying feature at a lower price point than competitors like Roomba."
+          }
+        }
+      },
+      "TVs": {
+        "models": {
+          "Apple_TV_4K": {
+            "modelName": "Apple TV 4K",
+            "price": "$179",
+            "features": ["4K HDR", "Dolby Vision", "Siri remote", "HomeKit integration"],
+            "competitionDiff": "Best for Apple users with deep integration into the Apple ecosystem, including HomeKit."
+          },
+          "Google_Chromecast_with_Google_TV": {
+            "modelName": "Google Chromecast with Google TV",
+            "price": "$49.99",
+            "features": ["4K HDR", "Google Assistant", "Smart home control", "Streaming"],
+            "competitionDiff": "Combines streaming functionality with Google Assistant for smart home control."
+          },
+          "Amazon_Fire_TV_Stick_4K": {
+            "modelName": "Amazon Fire TV Stick 4K",
+            "price": "$49.99",
+            "features": ["4K Ultra HD", "Alexa integration", "Dolby Atmos"],
+            "competitionDiff": "Best for users within the Amazon ecosystem, with built-in Alexa and streaming capabilities."
+          },
+          "Native_TV_OS": {
+            "modelName": "Native TV OS (e.g., LG webOS, Samsung Tizen)",
+            "price": "Varies by TV",
+            "features": ["Built-in apps", "Voice control", "Smart home integration"],
+            "competitionDiff": "Offers built-in apps and voice assistants (Alexa/Google Assistant) without needing extra hardware."
+          }
+        }
+      },
+      "Routines": {
+        "models": {
+          "Alexa_Routines": {
+            "modelName": "Alexa Routines",
+            "price": "Free",
+            "features": ["Custom triggers", "Multi-step actions", "Voice activation"],
+            "competitionDiff": "Supports the widest range of third-party devices and most customizable routine options."
+          },
+          "Google_Home_Routines": {
+            "modelName": "Google Home Routines",
+            "price": "Free",
+            "features": ["Time-based routines", "Voice control", "Integration with Google services"],
+            "competitionDiff": "Superior integration with Google services like Calendar, Maps, and Assistant."
+          },
+          "HomeKit_Automations": {
+            "modelName": "HomeKit Automations",
+            "price": "Free",
+            "features": ["Privacy-focused", "Location-based triggers", "Siri control"],
+            "competitionDiff": "Best for privacy, with advanced security and seamless integration into the Apple ecosystem."
+          },
+          "Home_Assistant_Automations": {
+            "modelName": "Home Assistant Automations",
+            "price": "Free",
+            "features": ["Full local control", "Complex multi-device automations", "DIY customization"],
+            "competitionDiff": "Most powerful and flexible for advanced users, with full local control over smart home devices."
+          }
+        }
+      },
+      "Network_Video_Recorders_NVR": {
+        "models": {
+          "Reolink_RLN8-410": {
+            "modelName": "Reolink RLN8-410",
+            "price": "$299.99",
+            "features": ["8 channels", "4K recording", "PoE", "Local storage"],
+            "competitionDiff": "Offers 4K resolution and Power-over-Ethernet for easy setup and reliable video recording."
+          },
+          "Amcrest_NV4108E-HS": {
+            "modelName": "Amcrest NV4108E-HS",
+            "price": "$249.99",
+            "features": ["8 channels", "1080p HD recording", "Remote viewing", "Motion detection"],
+            "competitionDiff": "Affordable NVR with support for remote viewing and motion detection alerts."
+          },
+          "Lorex_NR9163": {
+            "modelName": "Lorex NR9163",
+            "price": "$699.99",
+            "features": ["16 channels", "4K recording", "PoE", "Smart home integration"],
+            "competitionDiff": "Supports a large number of channels and integrates with smart home ecosystems."
+          },
+          "ZOSI_8CH_5MP_PoE_NVR": {
+            "modelName": "ZOSI 8CH 5MP PoE NVR",
+            "price": "$199.99",
+            "features": ["8 channels", "5MP recording", "Remote access", "PoE"],
+            "competitionDiff": "Cost-effective NVR option with reliable 5MP recording and remote access."
+          }
+        }
+      }
+    },
+    "devices": {
+      "Smart_Thermostats": {
+        "models": {
+          "Nest_Learning_Thermostat": {
+            "modelName": "Nest Learning Thermostat",
+            "price": "$249",
+            "features": ["Auto-schedule", "Remote control", "Energy reports", "Voice control"],
+            "competitionDiff": "Self-learning AI and seamless integration with Google Home ecosystem."
+          },
+          "Ecobee_SmartThermostat": {
+            "modelName": "Ecobee SmartThermostat",
+            "price": "$249",
+            "features": ["Room sensors", "Voice assistant built-in", "Energy-saving"],
+            "competitionDiff": "Built-in Alexa and superior room temperature sensing technology."
+          },
+          "Honeywell_T9_Smart_Thermostat": {
+            "modelName": "Honeywell T9 Smart Thermostat",
+            "price": "$199",
+            "features": ["Remote sensors", "Smart scheduling", "Energy-saving tips"],
+            "competitionDiff": "More affordable alternative with precise room-specific control."
+          },
+          "Emerson_Sensi_Touch": {
+            "modelName": "Emerson Sensi Touch",
+            "price": "$169",
+            "features": ["Touchscreen", "Smart alerts", "Geofencing"],
+            "competitionDiff": "Budget-friendly option with high-quality touchscreen and geofencing."
+          }
+        }
+      },
+      "Smart_Bulbs": {
+        "models": {
+          "Philips_Hue_White_and_Color_Ambiance": {
+            "modelName": "Philips Hue White and Color Ambiance",
+            "price": "$49.99",
+            "features": ["Color-changing", "Voice control", "Dimmable", "App control"],
+            "competitionDiff": "Best-in-class color range and robust app control ecosystem."
+          },
+          "LIFX_Color_A19": {
+            "modelName": "LIFX Color A19",
+            "price": "$59.99",
+            "features": ["Wi-Fi control", "Color changing", "Dimmable"],
+            "competitionDiff": "Higher brightness and direct Wi-Fi control without a hub."
+          },
+          "Wyze_Bulb_Color": {
+            "modelName": "Wyze Bulb Color",
+            "price": "$26.99 (4-pack)",
+            "features": ["Affordable", "Color-changing", "Voice control"],
+            "competitionDiff": "Extremely affordable with solid color-changing and voice integration."
+          },
+          "Sengled_Smart_LED": {
+            "modelName": "Sengled Smart LED",
+            "price": "$29.99",
+            "features": ["Dimmable", "Voice control", "App control"],
+            "competitionDiff": "Best budget option with reliable app control and voice assistant support."
+          }
+        }
+      },
+      "Smart_LED_Strips": {
+        "models": {
+          "Govee_RGBIC_LED_Strip_Lights": {
+            "modelName": "Govee RGBIC LED Strip Lights",
+            "price": "$69.99",
+            "features": ["Color changing", "Music sync", "App control", "Voice control"],
+            "competitionDiff": "Offers the most vibrant lighting effects with music sync and dynamic colors."
+          },
+          "Philips_Hue_Lightstrip_Plus": {
+            "modelName": "Philips Hue Lightstrip Plus",
+            "price": "$79.99",
+            "features": ["Expandable", "Color changing", "Voice control"],
+            "competitionDiff": "Best integration with smart home ecosystems like Apple HomeKit and Google Home."
+          },
+          "LIFX_Lightstrip_Color_Zones": {
+            "modelName": "LIFX Lightstrip Color Zones",
+            "price": "$89.99",
+            "features": ["Color zones", "Voice control", "Dimmable"],
+            "competitionDiff": "Precise color zoning and bright lighting without needing a hub."
+          },
+          "TP-Link_Kasa_Smart_LED_Strip": {
+            "modelName": "TP-Link Kasa Smart LED Strip",
+            "price": "$49.99",
+            "features": ["Voice control", "Music sync", "Dimmable"],
+            "competitionDiff": "Affordable smart strip with solid voice assistant integration."
+          }
+        }
+      },
+      "Mesh_Networks": {
+        "models": {
+          "Google_Nest_WiFi": {
+            "modelName": "Google Nest WiFi",
+            "price": "$269 (2-pack)",
+            "features": ["Built-in Google Assistant", "Parental controls", "Seamless roaming"],
+            "competitionDiff": "Excellent integration with Google services and smart home devices."
+          },
+          "Netgear_Orbi_RBK50": {
+            "modelName": "Netgear Orbi RBK50",
+            "price": "$299.99 (2-pack)",
+            "features": ["Tri-band", "4,000 sq ft coverage", "App control"],
+            "competitionDiff": "Superior coverage and speed with tri-band technology for heavy traffic."
+          },
+          "Eero_6": {
+            "modelName": "Eero 6",
+            "price": "$199 (3-pack)",
+            "features": ["Wi-Fi 6", "Easy setup", "Built-in Zigbee hub"],
+            "competitionDiff": "Affordable and ideal for smart homes with built-in Zigbee compatibility."
+          },
+          "TP-Link_Deco_X60": {
+            "modelName": "TP-Link Deco X60",
+            "price": "$219.99 (2-pack)",
+            "features": ["Wi-Fi 6", "Up to 5,000 sq ft coverage", "Advanced security"],
+            "competitionDiff": "Best security features and strong coverage with Wi-Fi 6."
+          }
+        }
+      }
+    },
+    "ecosystems": {
+      "Google_Home": {
+        "models": {
+          "Google_Nest_Hub_Max": {
+            "modelName": "Google Nest Hub Max",
+            "price": "$229",
+            "features": ["10-inch display", "Google Assistant", "Smart home control", "Security camera"],
+            "competitionDiff": "Best-in-class smart display with a built-in camera for home security."
+          },
+          "Google_Nest_Audio": {
+            "modelName": "Google Nest Audio",
+            "price": "$99",
+            "features": ["Google Assistant", "High-quality audio", "Multi-room control"],
+            "competitionDiff": "Superior sound quality compared to similarly priced smart speakers."
+          },
+          "Nest_Mini": {
+            "modelName": "Nest Mini",
+            "price": "$49",
+            "features": ["Compact design", "Voice control", "Google Assistant"],
+            "competitionDiff": "Most affordable option with Google Assistant and high audio quality."
+          }
+        }
+      },
+      "Amazon_Alexa": {
+        "models": {
+          "Echo_Show_10": {
+            "modelName": "Echo Show 10",
+            "price": "$249.99",
+            "features": ["10.1-inch display", "Rotating screen", "Video calls", "Smart home hub"],
+            "competitionDiff": "Unique rotating screen and integrated Alexa makes it the best for video calls."
+          },
+          "Echo_Studio": {
+            "modelName": "Echo Studio",
+            "price": "$199.99",
+            "features": ["Premium audio", "Dolby Atmos", "Smart home hub"],
+            "competitionDiff": "Best Alexa speaker for premium sound with built-in smart home hub."
+          },
+          "Echo_Dot_5th_Gen": {
+            "modelName": "Echo Dot 5th Gen",
+            "price": "$49.99",
+            "features": ["Compact size", "Voice control", "Alexa integration"],
+            "competitionDiff": "Most affordable Alexa device with better audio and faster response times."
+          },
+          "Echo_Flex": {
+            "modelName": "Echo Flex",
+            "price": "$24.99",
+            "features": ["Voice control", "Compact plug-in design", "Built-in Alexa"],
+            "competitionDiff": "Smallest and cheapest Alexa-enabled device, perfect for extending Alexa in different rooms."
+          }
+        }
+      },
+      "Apple_HomeKit": {
+        "models": {
+          "Apple_HomePod": {
+            "modelName": "Apple HomePod",
+            "price": "$299",
+            "features": ["Siri integration", "Premium audio", "Smart home hub"],
+            "competitionDiff": "Best for Apple users with premium sound quality and deep integration into the Apple ecosystem."
+          },
+          "Apple_HomePod_Mini": {
+            "modelName": "Apple HomePod Mini",
+            "price": "$99",
+            "features": ["Siri integration", "Multi-room audio", "Smart home control"],
+            "competitionDiff": "Affordable option with excellent integration into the HomeKit ecosystem."
+          },
+          "Apple_HomePod_2nd_Gen": {
+            "modelName": "Apple HomePod (2nd Gen)",
+            "price": "$349",
+            "features": ["Siri integration", "Dolby Atmos", "Smart home hub"],
+            "competitionDiff": "Latest HomePod with enhanced audio capabilities and better support for Dolby Atmos."
+          }
+        }
+      },
+      "Home_Assistant": {
+        "models": {
+          "Home_Assistant_Blue": {
+            "modelName": "Home Assistant Blue",
+            "price": "$149.99",
+            "features": ["Local control", "Custom automations", "Wide compatibility"],
+            "competitionDiff": "Ultimate DIY smart home hub with complete local control over smart devices."
+          },
+          "Home_Assistant_Yellow": {
+            "modelName": "Home Assistant Yellow",
+            "price": "$160",
+            "features": ["Zigbee integration", "Local processing", "Modular design"],
+            "competitionDiff": "Perfect for advanced users looking for integrated Zigbee and modular home automation."
+          },
+          "Raspberry_Pi_4_with_Home_Assistant": {
+            "modelName": "Raspberry Pi 4 with Home Assistant",
+            "price": "$75",
+            "features": ["Custom installation", "Local control", "Automation flexibility"],
+            "competitionDiff": "Affordable entry into DIY smart home automation with endless customization options."
+          }
+        }
+      }
+    },
+    "security": {
+      "Smart_Cameras": {
+        "models": {
+          "Arlo_Pro_4": {
+            "modelName": "Arlo Pro 4",
+            "price": "$199.99",
+            "features": ["2K resolution", "Night vision", "Wireless", "Motion detection"],
+            "competitionDiff": "Offers wireless functionality and excellent night vision in 2K resolution."
+          },
+          "Ring_Spotlight_Cam": {
+            "modelName": "Ring Spotlight Cam",
+            "price": "$179.99",
+            "features": ["1080p HD", "Two-way audio", "Built-in siren", "Night vision"],
+            "competitionDiff": "Integrated spotlight and siren offer enhanced security features compared to competitors."
+          },
+          "Google_Nest_Cam_Indoor_Outdoor": {
+            "modelName": "Google Nest Cam (Indoor/Outdoor)",
+            "price": "$129.99",
+            "features": ["1080p HD", "Night vision", "Weatherproof", "Google Assistant integration"],
+            "competitionDiff": "Tightly integrated with Google Assistant for voice control and smart home automation."
+          },
+          "Eufy_Security_SoloCam_E40": {
+            "modelName": "Eufy Security SoloCam E40",
+            "price": "$129.99",
+            "features": ["2K resolution", "Battery powered", "Weatherproof", "On-device AI"],
+            "competitionDiff": "No subscription required with on-device AI for security and privacy."
+          }
+        }
+      },
+      "Smart_Locks": {
+        "models": {
+          "August_WiFi_Smart_Lock": {
+            "modelName": "August Wi-Fi Smart Lock",
+            "price": "$229.99",
+            "features": ["Wi-Fi enabled", "Keyless entry", "Remote access", "Auto-lock/unlock"],
+            "competitionDiff": "Easy installation on existing deadbolts and integrates with most smart home systems."
+          },
+          "Yale_Assure_Lock_SL": {
+            "modelName": "Yale Assure Lock SL",
+            "price": "$199.99",
+            "features": ["Touchscreen", "Keyless entry", "Zigbee compatibility", "Voice control"],
+            "competitionDiff": "Sleek, keyless design with broad compatibility with Zigbee and smart home systems."
+          },
+          "Schlage_Encode_Smart_WiFi_Deadbolt": {
+            "modelName": "Schlage Encode Smart Wi-Fi Deadbolt",
+            "price": "$249.99",
+            "features": ["Built-in Wi-Fi", "Keypad entry", "Voice control", "App access"],
+            "competitionDiff": "Built-in Wi-Fi removes the need for an additional hub for remote control."
+          },
+          "Level_Bolt_Smart_Lock": {
+            "modelName": "Level Bolt Smart Lock",
+            "price": "$199",
+            "features": ["Invisible design", "Keyless entry", "Bluetooth enabled", "HomeKit compatible"],
+            "competitionDiff": "Invisible design that fits inside your door, maintaining the existing deadbolt."
+          }
+        }
+      },
+      "Door_Sensors": {
+        "models": {
+          "Ring_Contact_Sensor_2nd_Gen": {
+            "modelName": "Ring Contact Sensor (2nd Gen)",
+            "price": "$19.99",
+            "features": ["Wireless", "Instant notifications", "Easy installation"],
+            "competitionDiff": "Affordable, reliable option for Ring Alarm systems with instant mobile alerts."
+          },
+          "Samsung_SmartThings_Multipurpose_Sensor": {
+            "modelName": "Samsung SmartThings Multipurpose Sensor",
+            "price": "$24.99",
+            "features": ["Open/close detection", "Vibration sensing", "Temperature monitoring"],
+            "competitionDiff": "Multi-functional with temperature and vibration monitoring in addition to open/close detection."
+          },
+          "Eve_Door_and_Window_Sensor": {
+            "modelName": "Eve Door & Window Sensor",
+            "price": "$39.99",
+            "features": ["Wireless", "HomeKit compatible", "Instant alerts"],
+            "competitionDiff": "Best for Apple users with seamless HomeKit integration and enhanced security."
+          },
+          "Wyze_Contact_Sensor": {
+            "modelName": "Wyze Contact Sensor",
+            "price": "$29.99 (pack of 2)",
+            "features": ["Wireless", "Affordable", "Real-time notifications"],
+            "competitionDiff": "Most affordable option with reliable performance and easy setup."
+          }
+        }
+      },
+      "Alarm_Keypads": {
+        "models": {
+          "Ring_Alarm_Keypad": {
+            "modelName": "Ring Alarm Keypad",
+            "price": "$49.99",
+            "features": ["Battery powered", "Panic button", "Mode switching"],
+            "competitionDiff": "Highly integrated with Ring Alarm, offering a built-in panic button."
+          },
+          "SimpliSafe_Keypad": {
+            "modelName": "SimpliSafe Keypad",
+            "price": "$69.99",
+            "features": ["Panic button", "Battery powered", "Easy installation"],
+            "competitionDiff": "Minimalist design and easy to install, with one-touch panic button functionality."
+          },
+          "ADT_Smart_Home_Keypad": {
+            "modelName": "ADT Smart Home Keypad",
+            "price": "$99.99",
+            "features": ["Touchscreen", "Smart home integration", "Battery backup"],
+            "competitionDiff": "Offers advanced touchscreen features with full ADT smart home integration."
+          },
+          "Abode_Keypad_2": {
+            "modelName": "Abode Keypad 2",
+            "price": "$89.99",
+            "features": ["RFID tag support", "Battery powered", "Panic button"],
+            "competitionDiff": "Supports RFID tags for easy arming/disarming and offers additional security options."
+          }
+        }
+      }
+    }
+  }
+}

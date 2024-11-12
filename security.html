@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Homes - Security">
+    <meta name="author" content="Jonah Carpenter">
+    <title>Smart Home Security</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+    
+    <style>
+        /* Styling for the main content area */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: left;
+        }
+        
+        /* Styling for the header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px; /* Positions below the header */
+            left: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            flex-direction: column;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #444;
+        }
+
+        /* Logout button styling */
+        #logoutButton {
+            background-color: #555;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Center title */
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <!-- Header with Hamburger Menu, Title, and Logout Button -->
+    <header>
+        <!-- Hamburger icon for menu on the left -->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        
+        <!-- Centered Title -->
+        <div class="header-title">Smart Homes for Security</div>
+        
+        <!-- Logout button on the right -->
+        <button id="logoutButton" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- Dropdown menu for nav links -->
+    <div class="dropdown-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="devices.html">Devices</a>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="security.html">Security</a>
+        <a href="catalog.html">Catalog</a>
+    </div>
+
+    <!-- Main content area explaining security devices -->
+    <div class="content">
+        <section class="intro">
+            <h2>Enhance Your Security with Smart Devices</h2>
+            <!-- Introduction to smart home security -->
+            <p>One of the main reasons people start a smart home is for a better sense of security. This comes from things like cameras, smart locks, door sensors, motion sensors, and alarm systems. When starting a smart home, it is best to determine which ecosystem you're planning on committing to before you start building, because some devices do not work the same or at all depending on which ecosystem they are a part of.</p>
+    
+            <!-- Overview of smart cameras and their features -->
+            <p>Cameras are the best way to catch someone, as you can't really argue with video evidence. With companies like Ring, Nest, and Eufy all having competitive options for cameras, your decision is really going to come down to which settings matter the most to you. However, generally, the important settings are standard these days. With features like motion and person event notifications, it is easy to see who is coming around, and you even have the option to record clips and take screenshots.</p>
+    
+            <!-- Discussion on smart locks and their convenience -->
+            <p>Smart locks are the next step in the build process. I like smart locks for peace of mind and the ease of letting someone inside when you're not home. No more double-checking if doors are locked when you leave the house, and with auto-locking features that make sure it stays locked during the day, these are key reasons to invest in a nice smart lock. There are even smart lock options made for renters or people who do not want it to look like they have a smart lock.</p>
+    
+            <!-- Information on alarm systems and their functionality -->
+            <p>When I say alarm systems, I am thinking about a panel on the wall that makes a loud noise when the alarm is tripped. Ring, ADT, Vivint, and Eufy all have options for a system like this, and they can be programmed to track your mobile phone to automatically set and disarm the alarm for you. For the most part, things like motion sensors and door sensors (a way to tell if a door is open or closed) come in package deals with alarm systems or can be added for an additional cost. All we want from an alarm panel is something that will wake us up at night or notify us via mobile app when a door is opened.</p>
+        </section>
+    </div>
+    
+    <!-- Footer with project information -->
+    <footer>
+        <p>&copy; 2024 CSCI354 Project | Designed by Jonah Carpenter</p>
+    </footer>
+
+    </script>
+
+    <!-- Firebase App SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+
+    <script>
+    // Firebase configuration and initialization
+    const firebaseConfig = {
+    apiKey: "AIzaSyCAeysvoz2Cbew2OwvuDnm5ERn21JKhJY4",
+    authDomain: "csci-354-project-44dbc.firebaseapp.com",
+    projectId: "csci-354-project-44dbc",
+    storageBucket: "csci-354-project-44dbc.appspot.com",
+    messagingSenderId: "890408551469",
+    appId: "1:890408551469:web:ca6998a9b3f6e0e863e4a4",
+    measurementId: "G-XPMLG68ETY"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Authentication check
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            document.getElementById("logoutButton").style.display = "block";
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+
+    // Logout function
+    function logout() {
+        firebase.auth().signOut().then(() => {
+            alert("Logged out successfully.");
+            window.location.href = "login.html";
+        }).catch((error) => {
+            console.error("Logout error:", error.message);
+        });
+    }
+
+    // Toggle the visibility of the dropdown menu
+    function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+    }
+    </script>
+
+</body>
+</html>

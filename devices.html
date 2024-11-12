@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Homes - Devices">
+    <meta name="author" content="Jonah Carpenter">
+    <title>Smart Home Devices</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+
+    <style>
+        .content { max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: left; }
+        .examples { margin-top: 50px; text-align: center; }
+        .image-gallery { display: flex; justify-content: center; flex-wrap: wrap; }
+        .image-item { width: 30%; padding: 10px; }
+        .image-item img { width: 100%; height: auto; border: 2px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .image-item p { margin-top: 10px; font-size: 1em; color: #333; }
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; }
+        #caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+        @keyframes zoom { from {transform: scale(0)} to {transform: scale(1)} }
+        .modal-content, #caption { animation-name: zoom; animation-duration: 0.6s; }
+        .close { position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; transition: 0.3s; }
+        .close:hover, .close:focus { color: #bbb; cursor: pointer; }
+
+        /* Styling for the header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px; /* Positions below the header */
+            left: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            flex-direction: column;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #444;
+        }
+
+        #logoutButton {
+            background-color: #555;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Center title */
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Hamburger Menu, Title, and Logout Button -->
+    <header>
+        <!-- Hamburger icon for menu on the left -->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        
+        <!-- Centered Title -->
+        <div class="header-title">Smart Home Devices</div>
+        
+        <!-- Logout button on the right -->
+        <button id="logoutButton" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- Dropdown menu for nav links -->
+    <div class="dropdown-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="devices.html">Devices</a>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="security.html">Security</a>
+        <a href="catalog.html">Catalog</a>
+    </div>
+
+    <!-- Main content section explaining smart home devices -->
+    <div class="content">
+        <section class="intro">
+            <h2>Explore Smart Home Devices</h2>
+            <p>There are a lot of miscellaneous devices that can be added to your smart home, whether that be for lighting, thermostats, cleaning robots, or even smart speakers for whole-home audio. These devices will come down to what you want to do with your smart home or even just fun additions to enhance your setup.</p>
+    
+            <p>Thermostats are one of the best ways to save money within a smart home. If you're someone who spends a lot of time away from home, this could help reduce your electric bill significantly. Turning your AC off, or even just increasing the temperature threshold when you're away, means your A/C is not constantly cooling or heating when nobody is home.</p>
+    
+            <p>Cleaning robots are arguably a must-have in a smart home. If you are willing to spend enough for a robot with an auto-empty system and room mapping features, you'll forget the robot even exists, and your floors will always stay clean. Cheap robots will get the job done, but in my opinion, if you're not willing to invest in one, you might as well stick to hand vacuuming.</p>
+    
+            <p>Smart lights or smart bulbs are a convenience option, or even a styling choice for most people. Especially with table lamps, smart bulbs are an easy option to make it convenient to turn them on and off without getting off the couch. With endless options out there, you can choose from a variety of colors and brightness options. But remember to check if a bulb will work with your selected ecosystem.</p>
+    
+            <p>There are also lots of miscellaneous items you can add to do just about anything you want. Smart plugs, relays, and countless sensors can be used to convert seemingly "dumb" devices into something you can control with the click of a button. This part takes creativity to really take advantage of, but with the right sensors, anything can be made into a smart device. For example, nobody is going to buy a smart dryer just because they want notifications for when clothes are dry, but someone could buy a vibration sensor that can detect when the dryer might have finished.</p>
+
+            <p>As mentioned, some devices show up differently depending on which ecosystem they are a part of. In Home Assistant, you get tons of information about the device, along with a picture of your home layout with options to clean specific zones or rooms. Compared to HomeKits integration of the cleaning robot, which only gives you buttons to clean a certain selection of rooms and nothing else. Just keep this in mind when selecting devices for a specific ecosystem, and make sure they work as you intended.</p>
+        </section>
+    </div>
+    
+    <!-- Example gallery -->
+    <section class="examples">
+        <h2>Examples</h2>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="robot_has.jpg" alt="Robot Vacuum in Home Assistant" onclick="openModal(this)">
+                <p>Robot Vacuum in Home Assistant</p>
+            </div>
+            <div class="image-item">
+                <img src="robot_homekit.jpg" alt="Robot Vacuum in HomeKit" onclick="openModal(this)">
+                <p>Robot Vacuum in HomeKit</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CSCI354 Project | Designed by Jonah Carpenter</p>
+    </footer>
+
+    <!-- Modal for expanded images -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImg" alt="Expanded view">
+        <div id="caption"></div>
+    </div>
+    
+    <script>
+        // Image modal functions
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("expandedImg");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            captionText.innerHTML = imgElement.alt;
+        }
+    
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+     <!-- Firebase App SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+
+    <script>
+        // Firebase configuration and initialization
+        const firebaseConfig = {
+        apiKey: "AIzaSyCAeysvoz2Cbew2OwvuDnm5ERn21JKhJY4",
+        authDomain: "csci-354-project-44dbc.firebaseapp.com",
+        projectId: "csci-354-project-44dbc",
+        storageBucket: "csci-354-project-44dbc.appspot.com",
+        messagingSenderId: "890408551469",
+        appId: "1:890408551469:web:ca6998a9b3f6e0e863e4a4",
+        measurementId: "G-XPMLG68ETY"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Authentication check
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                document.getElementById("logoutButton").style.display = "block";
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        // Logout function
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                alert("Logged out successfully.");
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Logout error:", error.message);
+            });
+        }
+
+        // Toggle the visibility of the dropdown menu
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
+</body>
+</html>

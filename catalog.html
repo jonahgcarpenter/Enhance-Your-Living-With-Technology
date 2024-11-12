@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Homes Catalog">
+    <meta name="author" content="Jonah Carpenter">
+    <title>Smart Homes - Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+    <style>
+        .sub-options { display: none; margin-left: 20px; }
+        .active { display: block; }
+        .toggle { cursor: pointer; color: purple; text-decoration: underline; }
+        .indented-section { margin-left: 20px; display: flex; flex-direction: column; align-items: flex-start; }
+        .spinner { display: none; margin-left: 20px; }
+        .error-message { color: red; background-color: transparent; padding: 0; display: inline; }
+        html, body { height: 100%; margin: 0; display: flex; flex-direction: column; }
+        .content { flex-grow: 1; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        
+        /* Styling for the header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px; /* Positions below the header */
+            left: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            flex-direction: column;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #444;
+        }
+
+        #logoutButton {
+            background-color: #555;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Center title */
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Hamburger Menu, Title, and Logout Button -->
+    <header>
+        <!-- Hamburger icon for menu on the left -->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        
+        <!-- Centered Title -->
+        <div class="header-title">Smart Home Catalog</div>
+        
+        <!-- Logout button on the right -->
+        <button id="logoutButton" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- Dropdown menu for nav links -->
+    <div class="dropdown-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="devices.html">Devices</a>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="security.html">Security</a>
+        <a href="catalog.html">Catalog</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section class="indented-section">
+            <h2 class="toggle" onclick="toggleSection('devices')">Devices</h2>
+            <div class="spinner" id="devices-spinner">Loading...</div>
+            <ul id="devices" class="sub-options" aria-live="polite"></ul>
+        </section>
+        
+        <section class="indented-section">
+            <h2 class="toggle" onclick="toggleSection('ecosystems')">Ecosystems</h2>
+            <div class="spinner" id="ecosystems-spinner">Loading...</div>
+            <ul id="ecosystems" class="sub-options" aria-live="polite"></ul>
+        </section>
+
+        <section class="indented-section">
+            <h2 class="toggle" onclick="toggleSection('security')">Security</h2>
+            <div class="spinner" id="security-spinner">Loading...</div>
+            <ul id="security" class="sub-options" aria-live="polite"></ul>
+        </section>
+
+        <section class="indented-section">
+            <h2 class="toggle" onclick="toggleSection('additions')">Cool Additions</h2>
+            <div class="spinner" id="additions-spinner">Loading...</div>
+            <ul id="additions" class="sub-options" aria-live="polite"></ul>
+        </section>
+
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CSCI354 Project | Designed by Jonah Carpenter</p>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration and initialization
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAeysvoz2Cbew2OwvuDnm5ERn21JKhJY4",
+            authDomain: "csci-354-project-44dbc.firebaseapp.com",
+            databaseURL: "https://csci-354-project-44dbc-default-rtdb.firebaseio.com",
+            projectId: "csci-354-project-44dbc",
+            storageBucket: "csci-354-project-44dbc.appspot.com",
+            messagingSenderId: "890408551469",
+            appId: "1:890408551469:web:248b4310ee581a2a63e4a4",
+            measurementId: "G-XPMLG68ETY"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Redirect to signup page if user is not logged in
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                document.getElementById("logoutButton").style.display = "block";
+                loadCatalogData();
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        // Toggle the visibility of the dropdown menu
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+        }
+        // Logout function
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                alert("Logged out successfully.");
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Logout error:", error.message);
+            });
+        }
+
+        // Toggle section visibility
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle("active");
+        }
+
+        // Load data from Firebase and populate sections
+        function loadCatalogData() {
+            const categories = ["devices", "ecosystems", "security", "additions"];
+            categories.forEach(category => {
+                const spinner = document.getElementById(`${category}-spinner`);
+                const listElement = document.getElementById(category);
+                
+                spinner.style.display = "inline";
+                
+                firebase.database().ref(`catalog/${category}`).once("value")
+                    .then(snapshot => {
+                        snapshot.forEach(subCategorySnapshot => {
+                            const subCategoryName = subCategorySnapshot.key;
+                            const subCategoryItems = subCategorySnapshot.val();
+
+                            const subCategoryTitle = document.createElement("h3");
+                            subCategoryTitle.classList.add("toggle");
+                            subCategoryTitle.innerText = subCategoryName;
+                            listElement.appendChild(subCategoryTitle);
+
+                            const itemList = document.createElement("ul");
+                            itemList.classList.add("sub-options");
+
+                            // Convert subCategoryItems to an array and loop over the models
+                            Object.values(subCategoryItems.models).forEach(model => {
+                                const itemElement = document.createElement("li");
+                                itemElement.innerHTML = `<strong>${model.modelName}</strong>: ${model.price} - ${model.features.join(", ")}<br><em>${model.competitionDiff}</em>`;
+                                itemList.appendChild(itemElement);
+                            });
+
+                            subCategoryTitle.appendChild(itemList);
+                            subCategoryTitle.addEventListener('click', () => itemList.classList.toggle("active"));
+                            listElement.appendChild(subCategoryTitle);
+                        });
+                        spinner.style.display = "none";
+                    })
+                    .catch(error => {
+                        console.error(`Error loading ${category} data:`, error.message);
+                        document.getElementById("error-message").innerText = `Failed to load ${category} data.`;
+                        spinner.style.display = "none";
+                    });
+            });
+        }
+
+    </script>
+
+</body>
+</html>

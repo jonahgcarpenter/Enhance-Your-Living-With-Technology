@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Homes - Ecosystems">
+    <meta name="author" content="Jonah Carpenter">
+    <title>Smart Home Ecosystems</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+    
+    <style>
+        /* Content area styling */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: left;
+        }
+        
+        /* UI Examples section styling */
+        .ui-examples {
+            margin-top: 50px;
+            text-align: center;
+        }
+    
+        /* Flexbox layout for image gallery */
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+    
+        /* Individual image item styling */
+        .image-item {
+            width: 30%;
+            padding: 10px;
+        }
+    
+        /* Styling for images */
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Image description styling */
+        .image-item p {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #333;
+        }
+    
+        /* Modal styling for displaying enlarged images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+    
+        /* Modal content (enlarged image) styling */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+    
+        /* Caption styling for modal images */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+    
+        /* Animation for modal content */
+        .modal-content, #caption {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    
+        @keyframes zoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+    
+        /* Close button styling */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    
+        /* Close button hover effect */
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        /* Header styling with hamburger menu and logout button */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+    
+        /* Hamburger menu styling */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+        }
+    
+        /* Dropdown menu for navigation links */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px; /* Position below header */
+            left: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            flex-direction: column;
+            width: 150px;
+            z-index: 1;
+        }
+    
+        /* Styling links inside the dropdown menu */
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+        }
+    
+        .dropdown-menu a:hover {
+            background-color: #444;
+        }
+    
+        /* Logout button styling */
+        #logoutButton {
+            background-color: #555;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        /* Media queries for mobile screens (up to 600px wide) */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            .image-item {
+                width: 100%;
+                padding: 5px;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    
+        /* Media queries for tablets (600px to 900px wide) */
+        @media only screen and (min-width: 601px) and (max-width: 900px) {
+            .content {
+                padding: 30px;
+            }
+            .image-item {
+                width: 45%;
+                padding: 10px;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0 15px;
+            }
+        }
+    
+        /* Media queries for laptops/desktops (above 900px wide) */
+        @media only screen and (min-width: 901px) {
+            .content {
+                max-width: 1200px;
+                padding: 40px;
+            }
+            .image-item {
+                width: 30%;
+                padding: 15px;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0 20px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <!-- Header with Hamburger Menu, Title, and Logout Button -->
+    <header>
+        <!-- Hamburger icon for menu on the left -->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        
+        <!-- Centered Title -->
+        <div class="header-title">Smart Home Ecosystems</div>
+        
+        <!-- Logout button on the right -->
+        <button id="logoutButton" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- Dropdown menu for nav links -->
+    <div class="dropdown-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="devices.html">Devices</a>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="security.html">Security</a>
+        <a href="catalog.html">Catalog</a>
+    </div>
+
+    <!-- Main content section -->
+    <div class="content">
+        <section class="intro">
+            <h2>Understanding Smart Home Ecosystems</h2>
+            <p>Some devices only work with certain ecosystems, and sometimes devices will work better with different ecosystems. This is why we start building a smart home with the choice of ecosystem. From here, we find devices that work specifically with our ecosystem of choice, and we make sure they work the way we want them to. In an ideal world, every device within your smart home should be fully accessible within one mobile app. Because who likes having 20 different apps for 20 different smart devices?</p>
+    
+            <!-- Description of Alexa ecosystem -->
+            <p>Amazon Alexa is an easy choice, but it comes with some trade-offs in certain areas. Think of the Alexa ecosystem as the beginner system. It is great for simple automations like turning on lights at a certain hour or when you arrive home, but it lacks key aspects in my opinion. Alexa has one of the weakest ecosystems for security systems; the live view for cameras is almost non-existent. On the bright side, Alexa has a lot of options and is cheaper than options like HomeKit to get started with. If you're willing to deal with the lack of security options or having a separate app for your cameras, this is a viable option.</p>
+    
+            <!-- Description of HomeKit ecosystem -->
+            <p>HomeKit is the all-in-one package, but has fewer options, which means everything that works with HomeKit is generally more expensive. HomeKit has good options for live-viewing cameras and countless ease-of-use features, especially if you have an iPhone with widgets and Siri to control your home. Automations are easy to set up with the UI, and camera motion notifications can also include a screenshot depending on the camera. If you are used to an iPhone and are willing to pay the increased prices, HomeKit is the best option for starting a smart home.</p>
+    
+            <!-- Description of Google ecosystem -->
+            <p>Google also has an option for an ecosystem. But Google lacks compatibility with smart devices compared to Alexa, so most people would rather go with Alexa as they are seemingly similar. Unless you are already invested in the Google ecosystem, whether that be with Google TV or Google phones, it may be easier to go with Alexa.</p>
+    
+            <!-- Description of third-party options like Home Assistant -->
+            <p>Now there are other options, although they get much more complex, and some even require the knowledge to write your own automations and scripts. Although there is a heavy learning curve for some, this is by far the best option for compatibility, and you are not limited in how complex your automations can get. Home Assistant is the biggest of these third-party options. If you are able to write some YAML code and are willing to spend time researching open-source options for pairing your smart devices, this option checks all the boxes for a perfect smart home.</p>
+        </section>
+
+        <!-- UI Example section showing images of different ecosystems -->
+        <section class="ui-examples">
+            <h2>UI Examples</h2>
+            <div class="image-gallery">
+                <!-- Alexa example -->
+                <div class="image-item">
+                    <img src="alexa.jpg" alt="UI Example for Alexa" onclick="openModal(this)">
+                    <p>Alexa</p>
+                </div>
+                <!-- HomeKit example -->
+                <div class="image-item">
+                    <img src="homekit.jpg" alt="UI Example for Homekit" onclick="openModal(this)">
+                    <p>HomeKit</p>
+                </div>
+                <!-- Home Assistant example -->
+                <div class="image-item">
+                    <img src="has.jpg" alt="UI Example for Home Assistant" onclick="openModal(this)">
+                    <p>Home Assistant</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer with project information -->
+    <footer>
+        <p>&copy; 2024 CSCI354 Project | Designed by Jonah Carpenter</p>
+    </footer>
+
+    <!-- Modal structure for displaying enlarged images -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImg" alt="Expanded image view">
+        <div id="caption"></div>
+    </div>
+    
+    <script>
+        // Function to open the modal and display the clicked image
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("expandedImg");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            captionText.innerHTML = imgElement.alt;
+        }
+    
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+
+    </script>
+
+    <!-- Firebase App SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+
+    <script>
+    // Firebase configuration and initialization
+    const firebaseConfig = {
+    apiKey: "AIzaSyCAeysvoz2Cbew2OwvuDnm5ERn21JKhJY4",
+    authDomain: "csci-354-project-44dbc.firebaseapp.com",
+    projectId: "csci-354-project-44dbc",
+    storageBucket: "csci-354-project-44dbc.appspot.com",
+    messagingSenderId: "890408551469",
+    appId: "1:890408551469:web:ca6998a9b3f6e0e863e4a4",
+    measurementId: "G-XPMLG68ETY"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Authentication check
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            document.getElementById("logoutButton").style.display = "block";
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+
+    // Logout function
+    function logout() {
+        firebase.auth().signOut().then(() => {
+            alert("Logged out successfully.");
+            window.location.href = "login.html";
+        }).catch((error) => {
+            console.error("Logout error:", error.message);
+        });
+    }
+
+    // Toggle the visibility of the dropdown menu
+    function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+    }
+    </script>
+
+</body>
+</html>
