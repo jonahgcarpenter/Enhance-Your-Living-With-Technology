@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependency directories
+.DS_Store
+*.DS_Store
+
+# Vite cache
+.vite/
+
+# Package manager lock files (if using multiple package managers)
+pnpm-lock.yaml
+yarn.lock
+
+/src/secrets
