@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Main stylesheet for Smart Home IoT Hub
+   Author: [Your Name]
+   Course: CSCI 354 - Web Development
+   Professor: [Professor's Name]
+   Description: This stylesheet provides comprehensive styling for the Smart Home IoT Hub,
+   implementing a modern, responsive design with a focus on accessibility and user experience.
+*/
 
-/* Base variables */
+/* Base CSS Variables - Used for consistent theming across components */
 :root {
   --color-primary: #2d3436;
   --color-accent: #6c5ce7;
@@ -29,7 +35,7 @@
   --font-size-2xl: 2rem;
 }
 
-/* Global body styling */
+/* Global styling for basic elements */
 body {
   font-family: var(--font-primary);
   margin: 0;
@@ -45,7 +51,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout */
+/* Layout Components - Organized in a mobile-first approach */
 .page {
   min-height: 100vh;
   display: flex;
@@ -62,7 +68,7 @@ body {
   flex-direction: column;
 }
 
-/* Content styling */
+/* Component-Specific Styles - Modular design pattern */
 .content {
   max-width: 1200px;
   margin: 0 auto;
@@ -942,7 +948,7 @@ header {
   display: none;
 }
 
-/* Mobile Responsiveness */
+/* Responsive Design Breakpoints - Supporting multiple device sizes */
 @media screen and (max-width: 768px) {
   .nav {
     background: var(--color-primary);

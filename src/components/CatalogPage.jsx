@@ -1,3 +1,32 @@
+/**
+ * @component CatalogPage
+ * @description Interactive catalog displaying smart home products and ecosystems
+ * 
+ * Features:
+ * - Dynamic data fetching from Firebase Realtime Database
+ * - Hierarchical display of products (categories -> devices -> models)
+ * - Expandable/collapsible sections with animations
+ * - Price and feature comparisons
+ * - Responsive design
+ * 
+ * Data structure:
+ * catalog/
+ *   ├── devices/
+ *   │   └── [device]/
+ *   │       └── models/
+ *   │           └── [model]/
+ *   │               ├── modelName
+ *   │               ├── price
+ *   │               ├── features[]
+ *   │               └── competitionDiff
+ *   ├── ecosystems/
+ *   ├── security/
+ *   └── additions/
+ * 
+ * @uses {firebase/database} for real-time data
+ * @uses {firebase/auth} for authentication
+ */
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';
@@ -72,6 +101,13 @@ const CatalogPage = () => {
     }));
   };
 
+  /**
+   * Renders individual model information with expandable details
+   * @param {string} categoryKey - Category identifier
+   * @param {string} deviceKey - Device identifier
+   * @param {string} modelKey - Model identifier
+   * @param {Object} model - Model data object
+   */
   const renderModel = (categoryKey, deviceKey, modelKey, model) => (
     <div key={modelKey} className="model-card">
       <div onClick={() => toggleModel(categoryKey, deviceKey, modelKey)}>

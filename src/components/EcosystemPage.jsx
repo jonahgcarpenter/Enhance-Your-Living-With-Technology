@@ -7,6 +7,15 @@ import "../styles.css";
 import Alexa from '/images/alexa.jpg'; // with import
 import HK from '/images/homekit.jpg'; // with import
 import HAS from '/images/has.jpg'; // with import
+
+/**
+ * EcosystemPage Component
+ * 
+ * Provides detailed information about different smart home ecosystems.
+ * Features comparative analysis of major platforms (Alexa, HomeKit, etc.)
+ * Includes interactive image gallery with modal view functionality.
+ */
+
 const EcosystemPage = () => {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -39,6 +48,10 @@ const EcosystemPage = () => {
     });
   };
 
+  /**
+   * Gallery configuration for ecosystem UI examples
+   * Contains image source and alt text for each ecosystem interface
+   */
   const galleryItems = [
     { src: Alexa, alt: "UI Example for Alexa" },
     { src: HK, alt: "UI Example for HomeKit" },

@@ -5,6 +5,13 @@ import Nav from './Nav';
 import Footer from './Footer';
 import "../styles.css";
 
+/**
+ * SecurityPage Component
+ * 
+ * Displays information about smart home security features and best practices.
+ * Implements authentication check to ensure only logged-in users can access the page.
+ * Contains detailed sections about various security devices and their implementation.
+ */
 const SecurityPage = () => {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -27,6 +34,10 @@ const SecurityPage = () => {
     });
   };
 
+  /**
+   * Main sections data structure containing security information
+   * Each section has a title and an array of content paragraphs
+   */
   const sections = [
     {
       title: "Enhance Your Security with Smart Devices",

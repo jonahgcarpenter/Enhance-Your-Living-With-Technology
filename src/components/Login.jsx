@@ -5,6 +5,24 @@ import { useNavigate } from 'react-router-dom';
 import firebaseConfig from '../secrets/firebase';
 import Footer from './Footer';
 
+/**
+ * @component Login
+ * @description Handles user authentication using Firebase
+ * 
+ * Features:
+ * - Email/password authentication
+ * - Form validation
+ * - Loading states
+ * - Success/error messages
+ * - Auto-redirect for authenticated users
+ * 
+ * Security features:
+ * - Firebase authentication integration
+ * - Session management
+ * - Protected route redirection
+ * - Loading state prevention of double submission
+ */
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

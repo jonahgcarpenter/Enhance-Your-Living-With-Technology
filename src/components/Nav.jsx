@@ -1,3 +1,21 @@
+/**
+ * @component Nav
+ * @description Main navigation component with responsive design
+ * 
+ * Features:
+ * - Responsive hamburger menu
+ * - Dynamic route links
+ * - Animated menu transitions
+ * - Logout functionality
+ * - Click outside to close
+ * 
+ * Implementation details:
+ * - Uses CSS transitions for smooth animations
+ * - Manages body scroll during menu open
+ * - Handles authentication state
+ * - Provides visual feedback during logout
+ */
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';

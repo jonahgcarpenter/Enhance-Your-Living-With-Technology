@@ -1,3 +1,11 @@
+/**
+ * HomePage Component
+ * 
+ * Serves as the main landing page for the smart home application.
+ * Features navigation to different sections, an interactive image modal,
+ * and authentication protection.
+ */
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from 'firebase/auth';
@@ -30,6 +38,13 @@ const HomePage = () => {
     setModalContent({ isVisible: false, src: "", alt: "" });
   };
 
+  /**
+   * Navigation sections configuration
+   * Each section contains:
+   * - title: Display name for the section
+   * - description: Brief overview of section contents
+   * - link: Router path to the section
+   */
   const sections = [
     {
       title: "Devices",

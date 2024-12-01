@@ -1,3 +1,20 @@
+/**
+ * @component ResetPass
+ * @description Handles password reset functionality using Firebase Authentication
+ * 
+ * Features:
+ * - Current password verification
+ * - New password validation
+ * - Password confirmation matching
+ * - Success/error message display
+ * - Automatic redirect after success
+ * 
+ * Security measures:
+ * - Re-authentication before password change
+ * - Password confirmation check
+ * - Error handling for invalid credentials
+ */
+
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword, updatePassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';

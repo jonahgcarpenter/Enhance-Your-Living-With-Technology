@@ -3,6 +3,20 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 
+/**
+ * @component Signup
+ * @description Handles new user registration using Firebase Authentication
+ * 
+ * Features:
+ * - Email and password validation
+ * - Error handling and display
+ * - Navigation to login page
+ * - Protected route integration
+ * 
+ * @uses {firebase/auth} for user creation
+ * @uses {react-router-dom} for navigation
+ */
+
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');

@@ -7,6 +7,14 @@ import "../styles.css";
 import RobotHAS from '/images/robot_has.jpg'; // with import
 import RobotHK from '/images/robot_homekit.jpg'; // with import
 
+/**
+ * DevicePage Component
+ * 
+ * Presents comprehensive information about various smart home devices.
+ * Includes sections on thermostats, cleaning robots, smart lights, and misc devices.
+ * Features comparison images showing different ecosystem implementations.
+ */
+
 const DevicePage = () => {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -39,6 +47,10 @@ const DevicePage = () => {
     });
   };
 
+  /**
+   * Gallery configuration for device comparison examples
+   * Shows how same devices appear in different ecosystems
+   */
   const galleryItems = [
     { src: RobotHAS, alt: "Robot Vacuum in Home Assistant" },
     { src: RobotHK, alt: "Robot Vacuum in HomeKit" },
