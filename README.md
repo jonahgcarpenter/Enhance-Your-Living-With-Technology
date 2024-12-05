@@ -28,6 +28,7 @@ This is a school project developed as a React application that demonstrates the 
 - Interactive user interface
 
 ## Screenshots 
+![image](https://github.com/user-attachments/assets/c1d07a21-27fe-4570-93c9-e46c1d6cee30)
 ![image](https://github.com/user-attachments/assets/ad69f96e-f1b9-4bee-ab95-5c1f27299c25)
 ![image](https://github.com/user-attachments/assets/80332219-9251-4857-b2a6-222c024185e4)
 ![image](https://github.com/user-attachments/assets/d5cf4f64-33a3-4810-b470-8905ff97a73b)
